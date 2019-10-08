@@ -14,7 +14,7 @@ spec:
       hostNetwork: true # This option will allow the pod to use the host network for internet access
       containers:
       - name: donnie-pupil-table-copy # Container name (Can be set to whatever)
-        image: ninai/stimulus-pipeline # Docker Image hosted on Docker Hub
+        image: at-docker.ad.bcm.edu:5000/pipeline:latest # Docker Image hosted on at-docker.ad.bcm.edu:5000
         resources:
               requests:
                 memory: 16Gi
@@ -50,4 +50,5 @@ spec:
               name: github-credentials
               key: GITHUB_PASSWORD
         command: ["/bin/bash"]
-        args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/donniekim411/pipeline.git && python3 -u /data/pipeline/python/scripts/pupil-data-copy.py"] # sh commands to clone and run python script
+        args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/donniekim411/pipeline.git donnie_pipeine && python3 -u /data/donnie_pipeine/python/scripts/pupil-data-copy.py"] # sh commands to clone and run python script
+#/data/pipeline/python/scripts/pupil-data-copy.py
