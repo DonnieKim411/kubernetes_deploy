@@ -1,7 +1,7 @@
 apiVersion: batch/v1 # Jobs Default K8 API
 kind: Job # This tells kubernetes what kind of class it is working with
 metadata:
-  name: donnie-imagenet_v2_preprocessing # Name of the Job
+  name: donnie-imagenet-v2-preprocessing # Name of the Job
 spec:
   parallelism: 10
   template: # Pod Templete
