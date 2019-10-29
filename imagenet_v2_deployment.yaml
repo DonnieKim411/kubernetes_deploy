@@ -4,6 +4,7 @@ metadata:
   name: donnie-imagenet-v2-preprocessing # Name of the Job
 spec:
   parallelism: 10
+  backoffLimit: 999
   template: # Pod Templete
     spec:
       volumes:
@@ -50,4 +51,4 @@ spec:
               name: github-credentials
               key: GITHUB_PASSWORD
         command: ["/bin/bash"]
-        args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/donniekim411/stimuli.git && python3 -u /data/stimuli/script/populate_imagenet_v2.py"] # sh commands to clone and run python script
+        args: ["-c", "python3 -u /data/stimuli/script/populate_imagenet_v2.py"] # sh commands to clone and run python script
