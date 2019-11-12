@@ -1,7 +1,7 @@
 apiVersion: batch/v1 # Jobs Default K8 API
 kind: Job # This tells kubernetes what kind of class it is working with
 metadata:
-  name: donnie-imagenet-v2-preprocessing # Name of the Job
+  name: donnie-imagenet-v3-preprocessing # Name of the Job
 spec:
   parallelism: 10
   backoffLimit: 999
@@ -14,7 +14,7 @@ spec:
       restartPolicy: Never # Options are Always, OnFailure, and Never.
       hostNetwork: true # This option will allow the pod to use the host network for internet access
       containers:
-      - name: donnie-imagenet-v2-preprocessing # Container name (Can be set to whatever)
+      - name: donnie-imagenet-v3-preprocessing # Container name (Can be set to whatever)
         image: at-docker.ad.bcm.edu:5000/stimulus-pipeline:latest # Docker Image hosted on at-docker.ad.bcm.edu:5000
         resources:
               requests:
@@ -51,4 +51,4 @@ spec:
               name: github-credentials
               key: GITHUB_PASSWORD
         command: ["/bin/bash"]
-        args: ["-c", "python3 -u /data/stimuli/script/populate_imagenet_v2.py"] # sh commands to clone and run python script
+        args: ["-c", "python3 -u /data/stimuli/script/populate_imagenet.py"] # sh commands to clone and run python script
