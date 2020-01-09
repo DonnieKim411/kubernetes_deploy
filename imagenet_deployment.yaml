@@ -15,6 +15,7 @@ spec:
       hostNetwork: true # This option will allow the pod to use the host network for internet access
       containers:
       - name: donnie-imagenet-v3-preprocessing # Container name (Can be set to whatever)
+        # image: kdk411/personal_stimulus:latest
         image: at-docker.ad.bcm.edu:5000/stimulus-pipeline:latest # Docker Image hosted on at-docker.ad.bcm.edu:5000
         resources:
               requests:
@@ -35,7 +36,7 @@ spec:
             secretKeyRef:
               name: datajoint-credentials
               key: DJ_USER
-        - name: DJ_PASS
+        - name: DJ_PASS 
           valueFrom:
             secretKeyRef:
               name: datajoint-credentials
